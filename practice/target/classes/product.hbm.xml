@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hbm:hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hbm:hibernate-mapping xmlns:hbm="http://www.hibernate.org/xsd/hibernate-mapping"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping
+                                           http://www.hibernate.org/xsd/hibernate-mapping-3.0.xsd">
+   <class name="com.hibernate.product" table="HibernateTable">
+       <id name="id" column="id">
+           <generator class="identity"/>
+       </id>
+
+       <property name="name" column="name"/>
+       <property name="brand" column="brand"/>
+       <property name="price" column="price"/>
+       <property name="discountPercent" column="discountPercent"/>
+       <property name="totalQuantity" column="totalQuantity"/>
+   </class>
+</hbm:hibernate-mapping>

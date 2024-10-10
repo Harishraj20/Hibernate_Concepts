@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hbm:hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hbm:hibernate-mapping xmlns:hbm="http://www.hibernate.org/xsd/hibernate-mapping">
+  
+   <class name="com.practices.Banks" table="bank_db">
+       <id name="bank_IFSC" column="IFSC_code"/>
+       <property name="bank_name" column="bank_name"/>
+
+       <list name="customers" inverse="true" cascade="all">
+           <key column="IFSC_code"/>
+           <index column="customer_order"/> 
+           <one-to-many class="com.practices.Customers"/>
+       </list>
+
+   </class>
+</hbm:hibernate-mapping>

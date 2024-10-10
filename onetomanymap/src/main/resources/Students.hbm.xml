@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hbm:hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hbm:hibernate-mapping xmlns:hbm="http://www.hibernate.org/xsd/hibernate-mapping"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping
+                                           http://www.hibernate.org/xsd/hibernate-mapping-3.0.xsd">
+
+
+
+   <class name="com.many.Students" table="student_table">
+       <id name="id" column="student_id">
+           <generator class="identity"/>
+       </id>
+       <property name="studentName" column="student_name"/>
+       <many-to-one name = "department" class = "com.many.Departments" column = "dept_Id" not-null = "true"/>
+   </class>
+</hbm:hibernate-mapping>

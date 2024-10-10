@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hbm:hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hbm:hibernate-mapping xmlns:hbm="http://www.hibernate.org/xsd/hibernate-mapping"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping
+                                           http://www.hibernate.org/xsd/hibernate-mapping-3.0.xsd">
+   
+   <class name="com.example.Student" table="student_table">
+       <id name="stud_id" column="stud_id">
+           <generator class="identity"/>
+       </id>
+       <property name="stud_name" column="stud_name"/>
+       
+       <list name="library" table="library_student" cascade="all">
+           <key column="stud_id"/>
+           <index column="list_index"/>
+           <many-to-many column="lib_id" class="com.example.Library"/>
+       </list>
+   </class>
+
+</hbm:hibernate-mapping>
