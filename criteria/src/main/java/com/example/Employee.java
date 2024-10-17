@@ -1,5 +1,7 @@
 package com.example;
 
+import java.time.LocalDateTime;
+
 public class Employee {
     private String name;
     private int employeeId;
@@ -7,16 +9,26 @@ public class Employee {
     private String role;
     private int salary;
 
+    private LocalDateTime createdAt;  
+
     public Employee() {
 
     }
 
-    public Employee(String name, int employeeId, int experience, String role, int salary) {
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Employee(String name, int experience, String role, int salary) {
         this.name = name;
-        this.employeeId = employeeId;
         this.experience = experience;
         this.role = role;
         this.salary = salary;
+        this.createdAt = LocalDateTime.now();
     }
 
     public String getName() {
@@ -61,8 +73,9 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee [Name = " + name + ", EmployeeId = " + employeeId + ", Experience = " + experience + ", Role = " + role
-                + ", Salary = " + salary + "]";
+        return "Employee [name = " + name + ", employeeId = " + employeeId + ", experience = " + experience + ", role = " + role
+                + ", salary = " + salary + ", createdAt = " + createdAt + "]";
     }
+
 
 }
